@@ -65,9 +65,9 @@ function _start_vnc {
     _process_xrandr_env &
 
     if [ ! -z $DISPLAY ]; then
-		vncserver $DISPLAY 
+		vncserver $DISPLAY &
 	else
-		vncserver $DEFAULT_DISPLAY 
+		vncserver $DEFAULT_DISPLAY &
 	fi
 }
 

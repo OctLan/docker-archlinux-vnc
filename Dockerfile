@@ -31,7 +31,9 @@ RUN	wget https://github.com/novnc/websockify/archive/v${websockify_version}.tar.
 
 # COPY ./config/xstartup /root/.vnc/
 COPY ./config/ /vnc_defaults/
+
 RUN mkdir -p /root/.vnc
+
 COPY ./start.sh /
 
 WORKDIR /root

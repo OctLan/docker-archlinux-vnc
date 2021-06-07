@@ -44,7 +44,18 @@ RUN  rm /vnc_defaults/kdexstartup && mkdir -p /root/.vnc
 
 COPY ./start.sh /
 
-WORKDIR /root
+RUN useradd -m -G wheel --create-home \
+-p "$(openssl passwd -1 changeme)" docker
+
+RUN mkdir -p /home/docker
+
+RUN mkdir -p /home/docker/.vnc
+
+RUN chown -R docker /home/docker
+
+COPY ./sudoers-config /etc/sudoers.d/
+
+USER docker
 
 EXPOSE 5900 6080
 

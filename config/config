@@ -2,5 +2,7 @@
 ## in this file. See the following manpages for more: vncserver(1) Xvnc(1).
 ## Several common ones are shown below. Uncomment and modify to your liking.
 ##
-# securitytypes=vncauth,tlsvnc,vencrypt
+securitytypes=vncauth,tlsvnc,vencrypt
 depth=24+32
+geometry=1920x1080
+rfbport=5900

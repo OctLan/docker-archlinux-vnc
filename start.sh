@@ -65,10 +65,12 @@ function _start_vnc {
     _process_xrandr_env &
 
     if [ ! -z $DISPLAY ]; then
-		vncserver $DISPLAY &
+		vncserver $DISPLAY 
 	else
-		vncserver $DEFAULT_DISPLAY &
+		vncserver $DEFAULT_DISPLAY 
 	fi
 }
 
 _start_vnc
+
+/noVNC-${noVNC_version}/utils/launch.sh

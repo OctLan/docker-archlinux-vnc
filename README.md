@@ -23,7 +23,7 @@ The tag can be one of those listed above.
 Simple usage:
 
 ```
-docker run -d -p 5900:5900 -p 6080:6080 -e VNC_PASSWORD=password octoberlan/archlinux-vnc
+docker run -dit -p 5900:5900 -p 6080:6080 -v /dev/shm:/dev/shm -e VNC_PASSWORD=password octoberlan/archlinux-vnc
 ```
 
 Then visit <http://localhost:6080> to visit noVNC UI.

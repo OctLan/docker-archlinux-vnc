@@ -17,6 +17,12 @@ RUN pacman -Syu --noconfirm xfce4 \
 	python-numpy python-setuptools \
 	&& pacman -Scc --noconfirm
 
+ENV DUMB_INIT_VERSION "1.2.5"
+
+RUN wget -O /usr/local/bin/dumb-init \
+"https://github.com/Yelp/dumb-init/releases/download/v${DUMB_INIT_VERSION}"\
+"/dumb-init_${DUMB_INIT_VERSION}_aarch64"
+
 # Install noVNC
 RUN	wget https://github.com/novnc/websockify/archive/v${websockify_version}.tar.gz -O /websockify.tar.gz \
 	&& tar -xvf /websockify.tar.gz -C / \
@@ -39,5 +45,7 @@ COPY ./start.sh /
 WORKDIR /root
 
 EXPOSE 5900 6080
+
+ENTRYPOINT ["/usr/local/bin/dumb-init", "--"]
 
 CMD [ "/start.sh" ]

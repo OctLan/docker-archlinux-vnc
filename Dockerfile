@@ -23,6 +23,8 @@ RUN wget -O /usr/local/bin/dumb-init \
 "https://github.com/Yelp/dumb-init/releases/download/v${DUMB_INIT_VERSION}"\
 "/dumb-init_${DUMB_INIT_VERSION}_aarch64"
 
+RUN chmod +x /usr/local/bin/dumb-init
+
 # Install noVNC
 RUN	wget https://github.com/novnc/websockify/archive/v${websockify_version}.tar.gz -O /websockify.tar.gz \
 	&& tar -xvf /websockify.tar.gz -C / \
@@ -38,7 +40,7 @@ RUN	wget https://github.com/novnc/websockify/archive/v${websockify_version}.tar.
 # COPY ./config/xstartup /root/.vnc/
 COPY ./config/ /vnc_defaults/
 
-RUN  rm /vnc_defaults/config/kdexstartup && mkdir -p /root/.vnc
+RUN  rm /vnc_defaults/kdexstartup && mkdir -p /root/.vnc
 
 COPY ./start.sh /
 

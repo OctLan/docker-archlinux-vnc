@@ -45,7 +45,7 @@ RUN  rm /vnc_defaults/kdexstartup && mkdir -p /root/.vnc
 COPY ./start.sh /
 
 RUN useradd -m -G wheel --create-home \
--p "$(openssl passwd -1 changeme)" docker
+	-p "$(openssl passwd -1 changeme)" docker
 
 RUN mkdir -p /home/docker
 

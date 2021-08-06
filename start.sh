@@ -65,14 +65,14 @@ function _start_vnc {
     _init_vnc_dir
     _set_password
 
-    _process_xrandr_env &
+    _process_xrandr_env
 
-	/noVNC-${noVNC_version}/utils/launch.sh &
+	exec /noVNC-${noVNC_version}/utils/launch.sh &
 
     if [ ! -z $DISPLAY ]; then
-		vncserver $DISPLAY
+		exec vncserver $DISPLAY
 	else
-		vncserver $DEFAULT_DISPLAY
+		exec vncserver $DEFAULT_DISPLAY
 	fi
 }
 

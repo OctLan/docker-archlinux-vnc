@@ -14,7 +14,7 @@ ENV websockify_version=0.9.0
 # Install apps
 RUN pacman -Syu --noconfirm xfce4 \
 	chromium vim wget tigervnc xorg-server \
-	python-numpy python-setuptools \
+	python-numpy python-setuptools  bc sudo \
 	&& pacman -Scc --noconfirm
 
 ENV DUMB_INIT_VERSION "1.2.5"
@@ -59,6 +59,6 @@ USER docker
 
 EXPOSE 5900 6080
 
-# ENTRYPOINT ["/usr/local/bin/dumb-init", "--"]
+ENTRYPOINT ["/usr/local/bin/dumb-init", "--"]
 
 CMD [ "/start.sh" ]

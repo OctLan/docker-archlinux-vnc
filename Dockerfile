@@ -5,6 +5,7 @@ LABEL MAINTAINER="October.id"
 
 ENV noVNC_version=1.2.0
 ENV websockify_version=0.9.0
+ENV LANG C.UTF-8
 
 # Local debug
 # COPY ./mirrorlist /etc/pacman.d/mirrorlist 
@@ -14,7 +15,7 @@ ENV websockify_version=0.9.0
 # Install apps
 RUN pacman -Syu --noconfirm xfce4 \
 	chromium vim wget tigervnc xorg-server \
-	python-numpy python-setuptools  bc sudo \
+	python-numpy python-setuptools wqy-zenhei ttf-fireflysung bc sudo \
 	&& pacman -Scc --noconfirm
 
 ENV DUMB_INIT_VERSION "1.2.5"

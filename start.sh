@@ -65,7 +65,7 @@ function _start_vnc {
     _init_vnc_dir
     _set_password
 
-    _process_xrandr_env
+    _process_xrandr_env &
 
 	exec /noVNC-${noVNC_version}/utils/launch.sh &
 

@@ -4,7 +4,7 @@ DEFAULT_VNC_PASSWORD="ArchTigerVNC"
 DEFAULT_DISPLAY=":0"
 
 # chromium
-sed -i 's/\/usr\/bin\/chromium/\/usr\/bin\/chromium --no-sandbox/g' /usr/share/applications/chromium.desktop
+# sudo sed -i 's/\/usr\/bin\/chromium/\/usr\/bin\/chromium --no-sandbox/g' /usr/share/applications/chromium.desktop
 
 function _init_vnc_dir {
     if [[ ! -s "$HOME/.vnc/xstartup" ]]; then

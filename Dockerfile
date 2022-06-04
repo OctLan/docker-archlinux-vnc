@@ -63,3 +63,4 @@ EXPOSE 5900 6080
 ENTRYPOINT ["/usr/local/bin/dumb-init", "--"]
 
 CMD [ "/start.sh" ]
+

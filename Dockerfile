@@ -39,6 +39,7 @@ RUN	wget https://github.com/novnc/websockify/archive/v${websockify_version}.tar.
 	&& rm /noVNC.tar.gz
 
 # COPY ./config/xstartup /root/.vnc/
+
 COPY ./config/ /vnc_defaults/
 
 RUN  rm /vnc_defaults/kdexstartup && mkdir -p /root/.vnc

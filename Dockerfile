@@ -14,7 +14,7 @@ ENV LANG C.UTF-8
 
 # Install apps
 RUN pacman -Syu --noconfirm xfce4 \
-	chromium vim wget tigervnc xorg-server \
+	chromium vim wget tigervnc xorg-server unzip\
 	python-numpy python-setuptools wqy-zenhei ttf-fireflysung bc sudo \
 	&& pacman -Scc --noconfirm
 
@@ -22,7 +22,7 @@ ENV DUMB_INIT_VERSION "1.2.5"
 
 RUN ARCH=$(arch)  && wget -O /usr/local/bin/dumb-init \
 "https://github.com/Yelp/dumb-init/releases/download/v${DUMB_INIT_VERSION}"\
-"/dumb-init_${DUMB_INIT_VERSION}_$(ARCH)"
+"/dumb-init_${DUMB_INIT_VERSION}_${ARCH}"
 
 RUN chmod +x /usr/local/bin/dumb-init
 

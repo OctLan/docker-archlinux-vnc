@@ -20,9 +20,9 @@ RUN pacman -Syu --noconfirm xfce4 \
 
 ENV DUMB_INIT_VERSION "1.2.5"
 
-RUN wget -O /usr/local/bin/dumb-init \
+RUN ARCH=$(arch)  && wget -O /usr/local/bin/dumb-init \
 "https://github.com/Yelp/dumb-init/releases/download/v${DUMB_INIT_VERSION}"\
-"/dumb-init_${DUMB_INIT_VERSION}_aarch64"
+"/dumb-init_${DUMB_INIT_VERSION}_$(ARCH)"
 
 RUN chmod +x /usr/local/bin/dumb-init
 
